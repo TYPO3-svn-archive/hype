@@ -1,0 +1,44 @@
+{namespace h=Tx_Hype_ViewHelpers}
+
+<f:layout name="file" />
+
+<f:section name="content">
+	
+	<p>This viewhelpers return filesystem relevant information, mainly based on native PHP functions.</p>
+	
+	<h2>Exists</h2>
+	<f:if condition="{h:file.exists(path: file.path)}">
+		<p><f:image src="{file.path}" maxWidth="240" alt="" /><br />{file.path}</p>
+	</f:if>
+	
+	<h2>Access Time (atime)</h2>
+	<p><h:file.atime path="{file.path}" /></p>
+	
+	<h2>Create Time (ctime)</h2>
+	<p><h:file.ctime path="{file.path}" /></p>
+	
+	<h2>Modify Time (mtime)</h2>
+	<p><h:file.mtime path="{file.path}" /></p>
+	
+	<h2>Basename</h2>
+	<p><h:file.basename path="{file.path}" /></p>
+	<p><h:file.basename path="{file.path}" suffix=".jpg" /></p>
+	
+	<h2>Dirname</h2>
+	<p><h:file.dirname path="{file.path}" /></p>
+	
+	<h2>Realpath</h2>
+	<p><h:file.realpath path="{file.path}" /></p>
+	
+	<h2>Size</h2>
+	<p><h:file.size path="{file.path}" /></p>
+	<p><h:file.size path="{file.path}" unit="m" /></p>
+	<p><h:file.size path="{file.path}" precision="4" /></p>
+	<p><h:file.size path="{file.path}" mode="decimal" /></p>
+	
+	<h2>Type</h2>
+	<p><h:file.type path="{file.path}" /></p>
+	
+	<h2>Read</h2>
+	<code>Reads file contents.</code>
+</f:section>

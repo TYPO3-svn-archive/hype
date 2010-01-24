@@ -1,0 +1,15 @@
+{namespace h=Tx_Hype_ViewHelpers}
+
+<f:layout name="math" />
+
+<f:section name="content">
+	
+	<p>This viewhelpers apply mathematical calculations on the given data.</p>
+	
+	<h2>Absolute number (abs)</h2>
+	<p><h:math.abs number="-{number.value}" /></p>
+	
+	<h2>Decimal to Binary (decbin)</h2>
+	<p><h:math.decbin number="{number.value}" /></p>
+	
+</f:section>

@@ -31,6 +31,15 @@ class Tx_Hype_ViewHelpers_File_SizeViewHelper extends Tx_Fluid_Core_ViewHelper_A
 	protected $modes = array('binary' => 1024, 'decimal' => 1000);
 	
 	/**
+	 * Initializes the viewhelper
+	 *
+	 * @return void
+	 */
+	public function __construct() {
+		reset($this->units);
+	}
+	
+	/**
 	 * Render the filesize
 	 *
 	 * @param string $path Path to the file

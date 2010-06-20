@@ -2,7 +2,7 @@
 /***************************************************************
 *  Copyright notice
 *
-*  (c) 2009 Thomas "Thasmo" Deinhamer <thasmo@gmail.com>
+*  (c) 2010 Thomas "Thasmo" Deinhamer <thasmo@gmail.com>
 *  All rights reserved
 *
 *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -23,34 +23,61 @@
 ***************************************************************/
 
 /**
- * The viewhelper controller for testing viewhelpers
+ * IpAddress
  *
+ * @package Hype
+ * @subpackage Domain/Model
  * @version $Id:$
+ * @copyright Copyright belongs to the respective authors
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License, version 2
+ * @scope prototype
+ * @valueobject
  */
-class Tx_Hype_Controller_MathController extends Tx_Extbase_MVC_Controller_ActionController {
+class Tx_Hype_Domain_Model_IpAddress extends Tx_Extbase_DomainObject_AbstractValueObject {
 	
 	/**
-	 * Initializes the current action
-	 *
-	 * @return void
+	 * @var string
+	 * @validate String
 	 */
-	public function initializeAction() {
-		
+	protected $number;
+	
+	/**
+	 * Constructor
+	 */
+	public function __construct($number) {
+		$this->setNumber($number);
 	}
 	
 	/**
-	 * Display the index action.
+	 * Setter for number
+	 *
+	 * @param string $number
+	 * @return void
+	 */
+	public function setNumber($number) {
+		$this->number = $number;
+	}
+	
+	/**
+	 * Getter for number
 	 *
 	 * @return string
 	 */
-	public function indexAction() {
-		$number = array(
-			'value' => 536
-		);	
-		
-		$this->view->assign('settings', $this->settings);
-		$this->view->assign('number', $number);
+	public function getNumber() {
+		return $this->number;
+	}
+	
+	
+	
+	/* Magic methods */
+	
+	/**
+	 * Returns as a formatted string
+	 *
+	 * @return string
+	 */
+	public function __toString() {
+		return $this->getNumber();
 	}
 }
 ?>

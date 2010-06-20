@@ -5,41 +5,21 @@ if(!defined('TYPO3_MODE'))
 
 
 
-# register plugin
-Tx_Extbase_Utility_Extension::configurePlugin(
-	$_EXTKEY,
-	'File',
-	array('File' => 'index'),
-	array()
-);
-
-Tx_Extbase_Utility_Extension::configurePlugin(
-	$_EXTKEY,
-	'GoogleVisualization',
-	array('GoogleVisualization' => 'index'),
-	array()
-);
-
-Tx_Extbase_Utility_Extension::configurePlugin(
-	$_EXTKEY,
-	'FacebookConnect',
-	array('FacebookConnect' => 'index'),
-	array()
-);
-
-Tx_Extbase_Utility_Extension::configurePlugin(
-	$_EXTKEY,
-	'Math',
-	array('Math' => 'index'),
-	array()
-);
-
-
 $configuration =
 'mod.wizards.newContentElement.wizardItems.Hype {
 	header = Hype
 	
 	elements {
+		HypeDirectory {
+			icon = ../typo3conf/ext/hype_directory/Resources/Private/directory-plugin.png
+			title = Directory
+			description = Provides a basic system for storing contact data.
+			tt_content_defValues {
+				CType = list
+				list_type = hypedirectory_directory
+			}
+		}
+		
 		HypeRating {
 			icon = ../typo3conf/ext/hype_rating/Configuration/Icons/hype_rating-rating.plugin.gif
 			title = Rating
@@ -71,7 +51,7 @@ $configuration =
 		}
 		
 		HypeStoreCategory {
-			icon = ../typo3conf/ext/hype_store/Configuration/Icons/hype_store.plugin.gif
+			icon = ../typo3conf/ext/hype_store/Resources/Private/store-plugin.png
 			title = Store, Category
 			description = Displays store categories including sub-categories and products.
 			tt_content_defValues {
@@ -80,7 +60,7 @@ $configuration =
 			}
 		}
 		HypeStoreProduct {
-			icon = ../typo3conf/ext/hype_store/Configuration/Icons/hype_store.plugin.gif
+			icon = ../typo3conf/ext/hype_store/Resources/Private/store-plugin.png
 			title = Store, Product
 			description = Shows selected store products including prices, attributes and a lot more.
 			tt_content_defValues {
@@ -89,7 +69,7 @@ $configuration =
 			}
 		}
 		HypeStoreCart {
-			icon = ../typo3conf/ext/hype_store/Configuration/Icons/hype_store.plugin.gif
+			icon = ../typo3conf/ext/hype_store/Resources/Private/store-plugin.png
 			title = Store, Cart
 			description = Holds all products to purchase.
 			tt_content_defValues {
@@ -99,7 +79,7 @@ $configuration =
 		}
 		
 		HypeShowcaseClient {
-			icon = ../typo3conf/ext/hype_showcase/Configuration/Icons/hype_showcase-client.plugin.png
+			icon = ../typo3conf/ext/hype_showcase/Resources/Private/showcase-plugin.png
 			title = Showcase, Client
 			description = Displays a client\'s details including related projects.
 			tt_content_defValues {
@@ -108,7 +88,7 @@ $configuration =
 			}
 		}
 		HypeShowcaseProject {
-			icon = ../typo3conf/ext/hype_showcase/Configuration/Icons/hype_showcase-project.plugin.png
+			icon = ../typo3conf/ext/hype_showcase/Resources/Private/showcase-plugin.png
 			title = Showcase, Project
 			description = Shows all details of a selected project.
 			tt_content_defValues {
@@ -127,12 +107,11 @@ $configuration =
 			}
 		}
 	}
-}'
-;
+}';
 
 
 
-$extensions = array('hype_shadowbox', 'hype_jig', 'hype_rating', 'hype_store', 'hype_showcase', 'hype_surge');
+$extensions = array('hype_directory', 'hype_frame', 'hype_jig', 'hype_rating', 'hype_store', 'hype_showcase', 'hype_surge');
 
 foreach($extensions as $extension) {
 	
@@ -143,6 +122,11 @@ foreach($extensions as $extension) {
 	# switch to desired extension
 	switch($extension) {
 		
+		# add directory plugins
+		case 'hype_directory':
+			$configuration .= chr(10) . 'mod.wizards.newContentElement.wizardItems.Hype.show := addToList(HypeDirectory)';
+			break;
+			
 		# add rating plugins
 		case 'hype_rating':
 			$configuration .= chr(10) . 'mod.wizards.newContentElement.wizardItems.Hype.show := addToList(HypeJigRoutePlanner,HypeJigFileList)';

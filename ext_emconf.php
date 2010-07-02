@@ -12,12 +12,12 @@
 
 $EM_CONF[$_EXTKEY] = array(
 	'title' => 'Hype',
-	'description' => 'Hype is the core extension on which all Hype Extensions depend on. It provides a collection of global functions and implements TYPO3 specific configuration for better and easier usage of all installed Hype extensions.',
+	'description' => 'Hype is the core extension on which all Hype extensions depend on. It provides a collection of global functions and implements TYPO3 specific configuration for better and easier usage of all installed Hype extensions.',
 	'category' => 'misc',
 	'author' => 'Thomas "Thasmo" Deinhamer',
 	'author_email' => 'thasmo@gmail.com',
 	'shy' => '',
-	'dependencies' => '',
+	'dependencies' => 'extbase,fluid',
 	'conflicts' => '',
 	'priority' => '',
 	'module' => '',
@@ -29,13 +29,13 @@ $EM_CONF[$_EXTKEY] = array(
 	'clearCacheOnLoad' => 0,
 	'lockType' => '',
 	'author_company' => '',
-	'version' => '0.3.1',
+	'version' => '0.3.2',
 	'constraints' => array(
 		'depends' => array(
 			'php' => '5.2.0-0.0.0',
-			'typo3' => '4.3.0-0.0.0',
-			'extbase' => '',
-			'fluid' => '',
+			'typo3' => '4.4.0-4.4.99',
+			'extbase' => '1.2.0-0.0.0',
+			'fluid' => '1.2.0-0.0.0',
 		),
 		'conflicts' => array(
 		),

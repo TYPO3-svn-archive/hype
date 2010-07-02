@@ -1,0 +1,49 @@
+config.tx_extbase {
+	persistence {
+		classes {
+			Tx_Hype_Domain_Model_StaticCountry {
+				mapping {
+					tableName = static_countries
+					
+					columns {
+						cn_iso_2.mapOnProperty = isoCode2
+						cn_iso_3.mapOnProperty = isoCode3
+						cn_iso_nr.mapOnProperty = isoNumber
+						cn_parent_tr_iso_nr.mapOnProperty = territory
+						cn_official_name_local.mapOnProperty = localName
+						cn_official_name_en.mapOnProperty = englishName
+						cn_capital.mapOnProperty = capital
+						cn_tldomain.mapOnProperty = topLevelDomain
+						cn_currency_iso_3.mapOnProperty = currencyCode
+						cn_currency_iso_nr.mapOnProperty = currencyNumber
+						cn_phone.mapOnProperty = countryCode
+						cn_eu_member.mapOnProperty = euMember
+						cn_uno_member.mapOnProperty = unoMember
+						cn_address_format.mapOnProperty = addressFormat
+						cn_zone_flag.mapOnProperty = zoneFlag
+						cn_short_local.mapOnProperty = shortLocalName
+						cn_short_en.mapOnProperty = shortEnglishName
+					}
+				}
+			}
+			
+			Tx_Hype_Domain_Model_StaticLanguage {
+				mapping {
+					tableName = static_languages
+					
+					columns {
+						lg_iso_2.mapOnProperty = isoCode2
+						lg_typo3.mapOnProperty = typo3Code
+						lg_country_iso_2.mapOnProperty = isoCountryCode2
+						lg_collate_locale.mapOnProperty = locale
+						lg_name_local.mapOnProperty = localName
+						lg_sacred.mapOnProperty = sacred
+						lg_constructed .mapOnProperty = constructed
+						lg_name_en.mapOnProperty = englishName
+						lg_name_de.mapOnProperty = germanName
+					}
+				}
+			}
+		}
+	}
+}

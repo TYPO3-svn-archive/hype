@@ -20,15 +20,31 @@
  *                                                                        */
 
 /**
- * View helper for rendering the file size of a file
+ * View helper for formatting the size of a file
  *
  * @version $Id$
  * @license http://www.gnu.org/licenses/lgpl.html GNU Lesser General Public License, version 3 or later
+ *
+ * = Examples =
+ *
+ * Example 1:
+ * <f:format.filesize size="123456" />
+ * Output:
+ * 120.56 KiB
+ *
+ * Example 2:
+ * <f:format.filesize decimals="3" useDecimalSystem="1">123456</h:format.filesize>
+ * Output:
+ * 123.456 KB
+ *
+ * Example 3:
+ * {f:format.filesize(size: 123456, unit: 'm', decimals: 3, decimalSeparator: ',')}
+ * Output:
+ * 0,118 MiB
  */
 class Tx_Hype_ViewHelpers_Format_FilesizeViewHelper extends Tx_Fluid_Core_ViewHelper_AbstractViewHelper {
 	
 	protected $units = array('b', 'k', 'm', 'g', 't', 'e', 'z', 'y');
-	protected $modes = array('binary' => 1024, 'decimal' => 1000);
 	
 	/**
 	 * Initializes the viewhelper
@@ -40,23 +56,42 @@ class Tx_Hype_ViewHelpers_Format_FilesizeViewHelper extends Tx_Fluid_Core_ViewHe
 	}
 	
 	/**
-	 * Render the filesize
+	 * Formats the filesize
 	 *
-	 * @param integer $size The files size in bytes
-	 * @param string $unit The SI unit suffix to use
-	 * @param integer $precision The optional number of decimal digits to round to
-	 * @param string $mode The mode to calculate the size and determine the SI unit
-	 * @return string The filesize with SI unit appended
+	 * @param integer $size					The file's size in bytes
+	 * @param string $unit					The SI unit suffix to use
+	 * @param integer $decimals				The maximum number of decimal places to show
+	 * @param string $decimalSeparator		The symbol used as decimal separator
+	 * @param string $thousandsSeparator	The symbol used as thousands separator
+	 * @param boolean $useDecimalSystem		If set the decimal number system is used, instead of the binary number system
+	 * @return string						The filesize with SI unit appended
+	 * @author								Thomas "Thasmo" Deinhamer <thasmo@gmail.com>
+	 * @api
 	 */
-	public function render($size = 0, $unit = NULL, $precision = 2, $mode = 'binary') {
+	public function render($size = NULL, $unit = NULL, $decimals = 2, $decimalSeparator = ',', $thousandsSeparator = '.', $useDecimalSystem = FALSE) {
 		
-		while(($size > $this->modes[$mode] && is_null($unit)) || (!is_null($unit) && current($this->units) != strtolower($unit))) {
-			$size /= $this->modes[$mode];
+		# get the size
+		if(is_null($size)) {
+			$size = (int)$this->renderChildren();
+		}
+		
+		# determine the quotient for the calculation
+		$quotient = $useDecimalSystem ? 1000 : 1024;
+		
+		# determine the unit and calculate the final size
+		while(($size > $quotient && is_null($unit)) || (!is_null($unit) && current($this->units) != strtolower($unit))) {
+			$size /= $quotient;
 			next($this->units);
 		}
 		
-		return round($size, $precision) . ' ' . strtoupper(current($this->units)) . ($mode == 'binary' ? 'i' : '') . 'B';
+		$unit = current($this->units);
+		$unit = strtoupper($unit) . ((!$isDecimal && $unit != 'b') ? 'i' : '') . ($unit != 'b' ? 'B' : '');
+		
+		# format the final size
+		$size = number_format(round($size, $decimals), max(0, $decimals), $decimalSeparator, $thousandsSeparator);
+		
+		# append the unit to the final size
+		return implode(' ', array($size, $unit));
 	}
 }
-
 ?>

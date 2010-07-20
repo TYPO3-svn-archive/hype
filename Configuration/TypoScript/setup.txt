@@ -27,6 +27,22 @@ config.tx_extbase {
 				}
 			}
 			
+			Tx_Hype_Domain_Model_StaticCountryZone {
+				mapping {
+					tableName = static_country_zones
+					
+					columns {
+						zn_country_iso_2.mapOnProperty = isoCountryCode2
+						zn_country_iso_3.mapOnProperty = isoCountryCode3
+						zn_country_iso_nr.mapOnProperty = isoCountryNumber
+						zn_code.mapOnProperty = code
+						zn_name_local.mapOnProperty = localName
+						zn_name_en.mapOnProperty = englishName
+						zn_name_de.mapOnProperty = germanName
+					}
+				}
+			}
+			
 			Tx_Hype_Domain_Model_StaticLanguage {
 				mapping {
 					tableName = static_languages

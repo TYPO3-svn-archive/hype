@@ -23,7 +23,7 @@
 ***************************************************************/
 
 /**
- * StaticLanguage
+ * StaticCountryZone
  *
  * @package Hype
  * @subpackage Domain/Model
@@ -33,19 +33,7 @@
  * @scope prototype
  * @valueobject
  */
-class Tx_Hype_Domain_Model_StaticLanguage extends Tx_Extbase_DomainObject_AbstractValueObject {
-	
-	/**
-	 * @var string
-	 * @validate String
-	 */
-	protected $isoCode2;
-	
-	/**
-	 * @var string
-	 * @validate String
-	 */
-	protected $typo3Code;
+class Tx_Hype_Domain_Model_StaticCountryZone extends Tx_Extbase_DomainObject_AbstractValueObject {
 	
 	/**
 	 * @var string
@@ -57,25 +45,25 @@ class Tx_Hype_Domain_Model_StaticLanguage extends Tx_Extbase_DomainObject_Abstra
 	 * @var string
 	 * @validate String
 	 */
-	protected $locale;
+	protected $isoCountryCode3;
+	
+	/**
+	 * @var integer
+	 * @validate Integer
+	 */
+	protected $isoCountryNumber;
+	
+	/**
+	 * @var string
+	 * @validate String
+	 */
+	protected $code;
 	
 	/**
 	 * @var string
 	 * @validate String
 	 */
 	protected $localName;
-	
-	/**
-	 * @var integer
-	 * @validate Integer
-	 */
-	protected $sacred;
-	
-	/**
-	 * @var integer
-	 * @validate Integer
-	 */
-	protected $constructed;
 	
 	/**
 	 * @var string
@@ -90,47 +78,9 @@ class Tx_Hype_Domain_Model_StaticLanguage extends Tx_Extbase_DomainObject_Abstra
 	protected $germanName;
 	
 	/**
-	 * Getter for isoCode2
-	 *
-	 * @return integer
-	 */
-	public function getIsoCode2() {
-		return $this->isoCode2;
-	}
-	
-	/**
-	 * Setter for isoCode2
-	 *
-	 * @param integer $isoCode2
-	 * @return void
-	 */
-	public function setIsoCode2($isoCode2) {
-		$this->isoCode2 = $isoCode2;
-	}
-	
-	/**
-	 * Getter for typo3Code
-	 *
-	 * @return integer
-	 */
-	public function getTypo3Code() {
-		return $this->typo3Code;
-	}
-	
-	/**
-	 * Setter for typo3Code
-	 *
-	 * @param integer $typo3Code
-	 * @return void
-	 */
-	public function setTypo3Code($typo3Code) {
-		$this->typo3Code = $typo3Code;
-	}
-	
-	/**
 	 * Getter for isoCountryCode2
 	 *
-	 * @return integer
+	 * @return string
 	 */
 	public function getIsoCountryCode2() {
 		return $this->isoCountryCode2;
@@ -139,7 +89,7 @@ class Tx_Hype_Domain_Model_StaticLanguage extends Tx_Extbase_DomainObject_Abstra
 	/**
 	 * Setter for isoCountryCode2
 	 *
-	 * @param integer $isoCountryCode2
+	 * @param string $isoCountryCode2
 	 * @return void
 	 */
 	public function setIsoCountryCode2($isoCountryCode2) {
@@ -147,28 +97,66 @@ class Tx_Hype_Domain_Model_StaticLanguage extends Tx_Extbase_DomainObject_Abstra
 	}
 	
 	/**
-	 * Getter for locale
+	 * Getter for isoCountryCode3
 	 *
-	 * @return integer
+	 * @return string
 	 */
-	public function getLocale() {
-		return $this->locale;
+	public function getIsoCountryCode3() {
+		return $this->isoCountryCode3;
 	}
 	
 	/**
-	 * Setter for locale
+	 * Setter for isoCountryCode3
 	 *
-	 * @param integer $locale
+	 * @param string $isoCountryCode3
 	 * @return void
 	 */
-	public function setLocale($locale) {
-		$this->locale = $locale;
+	public function setIsoCountryCode3($isoCountryCode3) {
+		$this->isoCountryCode3 = $isoCountryCode3;
+	}
+	
+	/**
+	 * Getter for isoCountryNumber
+	 *
+	 * @return integer
+	 */
+	public function getIsoCountryNumber() {
+		return $this->isoCountryNumber;
+	}
+	
+	/**
+	 * Setter for isoCountryNumber
+	 *
+	 * @param integer $isoCountryNumber
+	 * @return void
+	 */
+	public function setIsoCountryNumber($isoCountryNumber) {
+		$this->isoCountryNumber = $isoCountryNumber;
+	}
+	
+	/**
+	 * Getter for code
+	 *
+	 * @return string
+	 */
+	public function getCode() {
+		return $this->code;
+	}
+	
+	/**
+	 * Setter for code
+	 *
+	 * @param string $code
+	 * @return void
+	 */
+	public function setCode($code) {
+		$this->code = $code;
 	}
 	
 	/**
 	 * Getter for localName
 	 *
-	 * @return integer
+	 * @return string
 	 */
 	public function getLocalName() {
 		return $this->localName;
@@ -177,7 +165,7 @@ class Tx_Hype_Domain_Model_StaticLanguage extends Tx_Extbase_DomainObject_Abstra
 	/**
 	 * Setter for localName
 	 *
-	 * @param integer $localName
+	 * @param string $localName
 	 * @return void
 	 */
 	public function setLocalName($localName) {
@@ -185,47 +173,9 @@ class Tx_Hype_Domain_Model_StaticLanguage extends Tx_Extbase_DomainObject_Abstra
 	}
 	
 	/**
-	 * Getter for sacred
-	 *
-	 * @return integer
-	 */
-	public function getSacred() {
-		return $this->sacred;
-	}
-	
-	/**
-	 * Setter for sacred
-	 *
-	 * @param integer $sacred
-	 * @return void
-	 */
-	public function setSacred($sacred) {
-		$this->sacred = $sacred;
-	}
-	
-	/**
-	 * Getter for constructed
-	 *
-	 * @return integer
-	 */
-	public function getConstructed() {
-		return $this->constructed;
-	}
-	
-	/**
-	 * Setter for constructed
-	 *
-	 * @param integer $constructed
-	 * @return void
-	 */
-	public function setConstructed($constructed) {
-		$this->constructed = $constructed;
-	}
-	
-	/**
 	 * Getter for englishName
 	 *
-	 * @return integer
+	 * @return string
 	 */
 	public function getEnglishName() {
 		return $this->englishName;
@@ -234,7 +184,7 @@ class Tx_Hype_Domain_Model_StaticLanguage extends Tx_Extbase_DomainObject_Abstra
 	/**
 	 * Setter for englishName
 	 *
-	 * @param integer $englishName
+	 * @param string $englishName
 	 * @return void
 	 */
 	public function setEnglishName($englishName) {
@@ -244,7 +194,7 @@ class Tx_Hype_Domain_Model_StaticLanguage extends Tx_Extbase_DomainObject_Abstra
 	/**
 	 * Getter for germanName
 	 *
-	 * @return integer
+	 * @return string
 	 */
 	public function getGermanName() {
 		return $this->germanName;
@@ -253,7 +203,7 @@ class Tx_Hype_Domain_Model_StaticLanguage extends Tx_Extbase_DomainObject_Abstra
 	/**
 	 * Setter for germanName
 	 *
-	 * @param integer $germanName
+	 * @param string $germanName
 	 * @return void
 	 */
 	public function setGermanName($germanName) {

@@ -4,7 +4,7 @@ config.tx_extbase {
 			Tx_Hype_Domain_Model_StaticCountry {
 				mapping {
 					tableName = static_countries
-					
+
 					columns {
 						cn_iso_2.mapOnProperty = isoCode2
 						cn_iso_3.mapOnProperty = isoCode3
@@ -26,11 +26,11 @@ config.tx_extbase {
 					}
 				}
 			}
-			
+
 			Tx_Hype_Domain_Model_StaticCountryZone {
 				mapping {
 					tableName = static_country_zones
-					
+
 					columns {
 						zn_country_iso_2.mapOnProperty = isoCountryCode2
 						zn_country_iso_3.mapOnProperty = isoCountryCode3
@@ -42,11 +42,11 @@ config.tx_extbase {
 					}
 				}
 			}
-			
+
 			Tx_Hype_Domain_Model_StaticLanguage {
 				mapping {
 					tableName = static_languages
-					
+
 					columns {
 						lg_iso_2.mapOnProperty = isoCode2
 						lg_typo3.mapOnProperty = typo3Code
@@ -54,7 +54,7 @@ config.tx_extbase {
 						lg_collate_locale.mapOnProperty = locale
 						lg_name_local.mapOnProperty = localName
 						lg_sacred.mapOnProperty = sacred
-						lg_constructed .mapOnProperty = constructed
+						lg_constructed.mapOnProperty = constructed
 						lg_name_en.mapOnProperty = englishName
 						lg_name_de.mapOnProperty = germanName
 					}

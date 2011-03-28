@@ -23,7 +23,7 @@
 ***************************************************************/
 
 /**
- * StaticCountry
+ * StaticCurrency
  *
  * @package Hype
  * @subpackage Domain/Model
@@ -33,13 +33,7 @@
  * @scope prototype
  * @valueobject
  */
-class Tx_Hype_Domain_Model_StaticCountry extends Tx_Extbase_DomainObject_AbstractValueObject {
-	
-	/**
-	 * @var string
-	 * @validate String
-	 */
-	protected $isoCode2;
+class Tx_Hype_Domain_Model_StaticCurrency extends Tx_Extbase_DomainObject_AbstractValueObject {
 	
 	/**
 	 * @var string
@@ -54,16 +48,52 @@ class Tx_Hype_Domain_Model_StaticCountry extends Tx_Extbase_DomainObject_Abstrac
 	protected $isoNumber;
 	
 	/**
-	 * @var integer
-	 * @validate Integer
+	 * @var string
+	 * @validate String
 	 */
-	protected $territory;
+	protected $leftSymbol;
 	
 	/**
 	 * @var string
 	 * @validate String
 	 */
-	protected $localName;
+	protected $rightSymbol;
+	
+	/**
+	 * @var string
+	 * @validate String
+	 */
+	protected $thousandsSeparator;
+	
+	/**
+	 * @var string
+	 * @validate String
+	 */
+	protected $decimalSeparator;
+	
+	/**
+	 * @var integer
+	 * @validate Integer
+	 */
+	protected $decimalDigits;
+	
+	/**
+	 * @var string
+	 * @validate String
+	 */
+	protected $fractionDivisor;
+	
+	/**
+	 * @var string
+	 * @validate String
+	 */
+	protected $leftFractionSymbol;
+	
+	/**
+	 * @var string
+	 * @validate String
+	 */
+	protected $rightFractionSymbol;
 	
 	/**
 	 * @var string
@@ -75,81 +105,24 @@ class Tx_Hype_Domain_Model_StaticCountry extends Tx_Extbase_DomainObject_Abstrac
 	 * @var string
 	 * @validate String
 	 */
-	protected $capital;
+	protected $englishFractionName;
 	
 	/**
 	 * @var string
 	 * @validate String
 	 */
-	protected $topLevelDomain;
+	protected $germanName;
 	
 	/**
 	 * @var string
 	 * @validate String
 	 */
-	protected $currencyCode;
-	
-	/**
-	 * @var integer
-	 * @validate Integer
-	 */
-	protected $currencyNumber;
-	
-	/**
-	 * @var integer
-	 * @validate Integer
-	 */
-	protected $countryCode;
-	
-	/**
-	 * @var boolean
-	 * @validate Boolean
-	 */
-	protected $euMember;
-	
-	/**
-	 * @var boolean
-	 * @validate Boolean
-	 */
-	protected $unoMember;
-	
-	/**
-	 * @var integer
-	 * @validate Integer
-	 */
-	protected $addressFormat;
-	
-	/**
-	 * @var integer
-	 * @validate Integer
-	 */
-	protected $zoneFlag;
-	
-	/**
-	 * @var string
-	 * @validate String
-	 */
-	protected $shortLocalName;
-	
-	/**
-	 * @var string
-	 * @validate String
-	 */
-	protected $shortEnglishName;
-	
-	/**
-	 * Getter for isoCode2
-	 *
-	 * @return integer
-	 */
-	public function getIsoCode2() {
-		return $this->isoCode2;
-	}
+	protected $germanFractionName;
 	
 	/**
 	 * Getter for isoCode3
 	 *
-	 * @return integer
+	 * @return string
 	 */
 	public function getIsoCode3() {
 		return $this->isoCode3;
@@ -165,21 +138,75 @@ class Tx_Hype_Domain_Model_StaticCountry extends Tx_Extbase_DomainObject_Abstrac
 	}
 	
 	/**
-	 * Getter for territory
-	 *
-	 * @return integer
-	 */
-	public function getTerritory() {
-		return $this->territory;
-	}
-	
-	/**
-	 * Getter for localName
+	 * Getter for leftSymbol
 	 *
 	 * @return string
 	 */
-	public function getLocalName() {
-		return $this->localName;
+	public function getLeftSymbol() {
+		return $this->leftSymbol;
+	}
+	
+	/**
+	 * Getter for rightSymbol
+	 *
+	 * @return string
+	 */
+	public function getRightSymbol() {
+		return $this->rightSymbol;
+	}
+	
+	/**
+	 * Getter for thousandsSeparator
+	 *
+	 * @return string
+	 */
+	public function getThousandsSeparator() {
+		return $this->thousandsSeparator;
+	}
+	
+	/**
+	 * Getter for decimalSeparator
+	 *
+	 * @return string
+	 */
+	public function getDecimalSeparator() {
+		return $this->decimalSeparator;
+	}
+	
+	/**
+	 * Getter for decimalDigits
+	 *
+	 * @return integer
+	 */
+	public function getDecimalDigits() {
+		return $this->decimalDigits;
+	}
+	
+	/**
+	 * Getter for fractionDivisor
+	 *
+	 * @return string
+	 */
+	public function getFractionDivisor() {
+		return $this->fractionDivisor;
+	}
+	
+	/**
+	 * Getter for leftFractionSymbol
+	 *
+	 * @return string
+	 */
+	public function getLeftFractionSymbol() {
+		return $this->leftFractionSymbol;
+	}
+	
+	/**
+	 * Getter for rightFractionSymbol
+	 *
+	 * @return string
+	 */
+	public function getRightFractionSymbol() {
+		return $this->rightFractionSymbol;
 	}
 	
 	/**
@@ -192,102 +219,30 @@ class Tx_Hype_Domain_Model_StaticCountry extends Tx_Extbase_DomainObject_Abstrac
 	}
 	
 	/**
-	 * Getter for capital
+	 * Getter for englishFractionName
 	 *
 	 * @return string
 	 */
-	public function getCapital() {
-		return $this->capital;
+	public function getEnglishFractionName() {
+		return $this->englishFractionName;
 	}
 	
 	/**
-	 * Getter for topLevelDomain
+	 * Getter for germanName
 	 *
 	 * @return string
 	 */
-	public function getTopLevelDomain() {
-		return $this->topLevelDomain;
+	public function getGermanName() {
+		return $this->germanName;
 	}
 	
 	/**
-	 * Getter for currencyCode
+	 * Getter for germanFractionName
 	 *
 	 * @return string
 	 */
-	public function getCurrencyCode() {
-		return $this->currencyCode;
-	}
-	
-	/**
-	 * Getter for currencyNumber
-	 *
-	 * @return integer
-	 */
-	public function getCurrencyNumber() {
-		return $this->currencyNumber;
-	}
-	
-	/**
-	 * Getter for countryCode
-	 *
-	 * @return integer
-	 */
-	public function getCountryCode() {
-		return $this->countryCode;
-	}
-	
-	/**
-	 * Getter for euMember
-	 *
-	 * @return integer
-	 */
-	public function getEuMember() {
-		return $this->euMember;
-	}
-	
-	/**
-	 * Getter for unoMember
-	 *
-	 * @return integer
-	 */
-	public function getUnoMember() {
-		return $this->unoMember;
-	}
-	
-	/**
-	 * Getter for addressFormat
-	 *
-	 * @return integer
-	 */
-	public function getAddressFormat() {
-		return $this->addressFormat;
-	}
-	
-	/**
-	 * Getter for zoneFlag
-	 *
-	 * @return integer
-	 */
-	public function getZoneFlag() {
-		return $this->zoneFlag;
-	}
-	
-	/**
-	 * Getter for shortLocalName
-	 *
-	 * @return string
-	 */
-	public function getShortLocalName() {
-		return $this->shortLocalName;
-	}
-	
-	/**
-	 * Getter for shortEnglishName
-	 *
-	 * @return string
-	 */
-	public function getShortEnglishName() {
-		return $this->shortEnglishName;
+	public function getGermanFractionName() {
+		return $this->germanFractionName;
 	}
 	
 	
@@ -300,7 +255,7 @@ class Tx_Hype_Domain_Model_StaticCountry extends Tx_Extbase_DomainObject_Abstrac
 	 * @return string
 	 */
 	public function __toString() {
-		return $this->getShortEnglishName();
+		return $this->getEnglishName();
 	}
 }
 ?>

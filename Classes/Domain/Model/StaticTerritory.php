@@ -23,7 +23,7 @@
 ***************************************************************/
 
 /**
- * StaticLanguage
+ * StaticTerritory
  *
  * @package Hype
  * @subpackage Domain/Model
@@ -33,49 +33,19 @@
  * @scope prototype
  * @valueobject
  */
-class Tx_Hype_Domain_Model_StaticLanguage extends Tx_Extbase_DomainObject_AbstractValueObject {
-	
-	/**
-	 * @var string
-	 * @validate String
-	 */
-	protected $isoCode2;
-	
-	/**
-	 * @var string
-	 * @validate String
-	 */
-	protected $typo3Code;
-	
-	/**
-	 * @var string
-	 * @validate String
-	 */
-	protected $isoCountryCode2;
-	
-	/**
-	 * @var string
-	 * @validate String
-	 */
-	protected $locale;
-	
-	/**
-	 * @var string
-	 * @validate String
-	 */
-	protected $localName;
+class Tx_Hype_Domain_Model_StaticTerritory extends Tx_Extbase_DomainObject_AbstractValueObject {
 	
 	/**
 	 * @var integer
 	 * @validate Integer
 	 */
-	protected $sacred;
+	protected $isoNumber;
 	
 	/**
 	 * @var integer
 	 * @validate Integer
 	 */
-	protected $constructed;
+	protected $parentIsoNumber;
 	
 	/**
 	 * @var string
@@ -90,72 +60,27 @@ class Tx_Hype_Domain_Model_StaticLanguage extends Tx_Extbase_DomainObject_Abstra
 	protected $germanName;
 	
 	/**
-	 * Getter for isoCode2
+	 * Getter for isoNumber
 	 *
-	 * @return integer
+	 * @return string
 	 */
-	public function getIsoCode2() {
-		return $this->isoCode2;
+	public function getIsoNumber() {
+		return $this->isoNumber;
 	}
 	
 	/**
-	 * Getter for typo3Code
+	 * Getter for parentIsoNumber
 	 *
-	 * @return integer
+	 * @return string
 	 */
-	public function getTypo3Code() {
-		return $this->typo3Code;
-	}
-	
-	/**
-	 * Getter for isoCountryCode2
-	 *
-	 * @return integer
-	 */
-	public function getIsoCountryCode2() {
-		return $this->isoCountryCode2;
-	}
-	
-	/**
-	 * Getter for locale
-	 *
-	 * @return integer
-	 */
-	public function getLocale() {
-		return $this->locale;
-	}
-	
-	/**
-	 * Getter for localName
-	 *
-	 * @return integer
-	 */
-	public function getLocalName() {
-		return $this->localName;
-	}
-	
-	/**
-	 * Getter for sacred
-	 *
-	 * @return integer
-	 */
-	public function getSacred() {
-		return $this->sacred;
-	}
-	
-	/**
-	 * Getter for constructed
-	 *
-	 * @return integer
-	 */
-	public function getConstructed() {
-		return $this->constructed;
+	public function getParentIsoNumber() {
+		return $this->parentIsoNumber;
 	}
 	
 	/**
 	 * Getter for englishName
 	 *
-	 * @return integer
+	 * @return string
 	 */
 	public function getEnglishName() {
 		return $this->englishName;
@@ -164,7 +89,7 @@ class Tx_Hype_Domain_Model_StaticLanguage extends Tx_Extbase_DomainObject_Abstra
 	/**
 	 * Getter for germanName
 	 *
-	 * @return integer
+	 * @return string
 	 */
 	public function getGermanName() {
 		return $this->germanName;

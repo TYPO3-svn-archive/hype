@@ -23,7 +23,7 @@
 ***************************************************************/
 
 /**
- * StaticLanguage
+ * BackendUsergroup
  *
  * @package Hype
  * @subpackage Domain/Model
@@ -31,156 +31,161 @@
  * @copyright Copyright belongs to the respective authors
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License, version 2
  * @scope prototype
- * @valueobject
+ * @entity
  */
-class Tx_Hype_Domain_Model_StaticLanguage extends Tx_Extbase_DomainObject_AbstractValueObject {
-	
-	/**
-	 * @var string
-	 * @validate String
-	 */
-	protected $isoCode2;
-	
-	/**
-	 * @var string
-	 * @validate String
-	 */
-	protected $typo3Code;
-	
-	/**
-	 * @var string
-	 * @validate String
-	 */
-	protected $isoCountryCode2;
-	
-	/**
-	 * @var string
-	 * @validate String
-	 */
-	protected $locale;
-	
-	/**
-	 * @var string
-	 * @validate String
-	 */
-	protected $localName;
+class Tx_Hype_Domain_Model_Typo3_BackendUsergroup extends Tx_Extbase_DomainObject_AbstractEntity {
 	
 	/**
 	 * @var integer
 	 * @validate Integer
 	 */
-	protected $sacred;
+	protected $pid;
+	
+	/**
+	 * @var boolean
+	 * @validate Boolean
+	 */
+	protected $hidden;
+	
+	/**
+	 * @var boolean
+	 * @validate Boolean
+	 */
+	protected $deleted;
+	
+	/**
+	 * @var Tx_Hype_Domain_Model_Typo3_BackendUser
+	 */
+	protected $creationUser;
+	
+	/**
+	 * @var DateTime
+	 */
+	protected $creationDate;
+	
+	/**
+	 * @var DateTime
+	 */
+	protected $modificationDate;
+	
+	/**
+	 * @var string
+	 * @validate String
+	 */
+	protected $title;
+	
+	/**
+	 * @var string
+	 * @validate String
+	 */
+	protected $allowedFields;
+	
+	/**
+	 * @var string
+	 * @validate String
+	 */
+	protected $deniedPlugins;
+	
+	/**
+	 * @var string
+	 * @validate String
+	 */
+	protected $allowedLanguages;
+	
+	/**
+	 * @var string
+	 * @validate String
+	 */
+	protected $options;
+	
+	/**
+	 * @var string
+	 * @validate String
+	 */
+	protected $databaseMountpoints;
+	
+	/**
+	 * @var string
+	 * @validate String
+	 */
+	protected $pageTypes;
+	
+	/**
+	 * @var string
+	 * @validate String
+	 */
+	protected $viewableTables;
+	
+	/**
+	 * @var string
+	 * @validate String
+	 */
+	protected $editableTables;
+	
+	/**
+	 * @var string
+	 * @validate String
+	 */
+	protected $allowedModules;
+	
+	/**
+	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Hype_Domain_Model_Typo3_SystemFilemount>
+	 */
+	protected $fileMountpoints;
 	
 	/**
 	 * @var integer
 	 * @validate Integer
 	 */
-	protected $constructed;
+	protected $filePermissions;
+	
+	/**
+	 * @var boolean
+	 * @validate Boolean
+	 */
+	protected $enableAccessLists;
 	
 	/**
 	 * @var string
 	 * @validate String
 	 */
-	protected $englishName;
+	protected $description;
 	
 	/**
 	 * @var string
 	 * @validate String
 	 */
-	protected $germanName;
+	protected $allowedDomain;
 	
 	/**
-	 * Getter for isoCode2
-	 *
-	 * @return integer
+	 * @var string
+	 * @validate String
 	 */
-	public function getIsoCode2() {
-		return $this->isoCode2;
-	}
+	protected $typoscriptConfiguration;
 	
 	/**
-	 * Getter for typo3Code
-	 *
-	 * @return integer
+	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Hype_Domain_Model_Typo3_BackendUsergroup>
 	 */
-	public function getTypo3Code() {
-		return $this->typo3Code;
-	}
+	protected $usergroups;
 	
 	/**
-	 * Getter for isoCountryCode2
-	 *
-	 * @return integer
+	 * @var boolean
+	 * @validate Boolean
 	 */
-	public function getIsoCountryCode2() {
-		return $this->isoCountryCode2;
-	}
+	protected $hideInLists;
 	
 	/**
-	 * Getter for locale
-	 *
-	 * @return integer
+	 * @var integer
+	 * @validate Integer
 	 */
-	public function getLocale() {
-		return $this->locale;
-	}
-	
-	/**
-	 * Getter for localName
-	 *
-	 * @return integer
-	 */
-	public function getLocalName() {
-		return $this->localName;
-	}
-	
-	/**
-	 * Getter for sacred
-	 *
-	 * @return integer
-	 */
-	public function getSacred() {
-		return $this->sacred;
-	}
-	
-	/**
-	 * Getter for constructed
-	 *
-	 * @return integer
-	 */
-	public function getConstructed() {
-		return $this->constructed;
-	}
-	
-	/**
-	 * Getter for englishName
-	 *
-	 * @return integer
-	 */
-	public function getEnglishName() {
-		return $this->englishName;
-	}
-	
-	/**
-	 * Getter for germanName
-	 *
-	 * @return integer
-	 */
-	public function getGermanName() {
-		return $this->germanName;
-	}
+	protected $workspacePermissions;
 	
 	
 	
 	/* Magic methods */
 	
-	/**
-	 * Returns as a formatted string
-	 *
-	 * @return string
-	 */
 	public function __toString() {
-		return $this->getEnglishName();
+		return get_class($this);
 	}
 }
 ?>

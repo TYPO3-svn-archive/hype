@@ -23,8 +23,31 @@
 ***************************************************************/
 
 /**
- * A repository for StaticLanguage
+ * A repository for Articles
  */
-class Tx_Hype_Domain_Repository_StaticLanguageRepository extends Tx_Extbase_Persistence_Repository {			
+class Tx_Hype_Domain_Repository_TtNews_ArticleRepository extends Tx_Extbase_Persistence_Repository {
+	
+	/**
+	 * Finds the most recent news articles
+	 *
+	 * @var integer $limit
+	 * @return
+	 */
+	public function findRecent($limit = 0) {
+		
+		# create new query
+		$query = $this->createQuery();
+		
+		# set orderings
+		$query->setOrderings(array('datetime' => Tx_Extbase_Persistence_QueryInterface::ORDER_DESCENDING));
+		
+		# set query limit
+		if($limit > 0) {
+			$query->setLimit((int)$limit);
+		}
+		
+		# run query
+		return $query->execute();
+	}
 }
 ?>

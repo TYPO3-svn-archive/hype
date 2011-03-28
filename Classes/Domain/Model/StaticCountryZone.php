@@ -87,32 +87,12 @@ class Tx_Hype_Domain_Model_StaticCountryZone extends Tx_Extbase_DomainObject_Abs
 	}
 	
 	/**
-	 * Setter for isoCountryCode2
-	 *
-	 * @param string $isoCountryCode2
-	 * @return void
-	 */
-	public function setIsoCountryCode2($isoCountryCode2) {
-		$this->isoCountryCode2 = $isoCountryCode2;
-	}
-	
-	/**
 	 * Getter for isoCountryCode3
 	 *
 	 * @return string
 	 */
 	public function getIsoCountryCode3() {
 		return $this->isoCountryCode3;
-	}
-	
-	/**
-	 * Setter for isoCountryCode3
-	 *
-	 * @param string $isoCountryCode3
-	 * @return void
-	 */
-	public function setIsoCountryCode3($isoCountryCode3) {
-		$this->isoCountryCode3 = $isoCountryCode3;
 	}
 	
 	/**
@@ -125,32 +105,12 @@ class Tx_Hype_Domain_Model_StaticCountryZone extends Tx_Extbase_DomainObject_Abs
 	}
 	
 	/**
-	 * Setter for isoCountryNumber
-	 *
-	 * @param integer $isoCountryNumber
-	 * @return void
-	 */
-	public function setIsoCountryNumber($isoCountryNumber) {
-		$this->isoCountryNumber = $isoCountryNumber;
-	}
-	
-	/**
 	 * Getter for code
 	 *
 	 * @return string
 	 */
 	public function getCode() {
 		return $this->code;
-	}
-	
-	/**
-	 * Setter for code
-	 *
-	 * @param string $code
-	 * @return void
-	 */
-	public function setCode($code) {
-		$this->code = $code;
 	}
 	
 	/**
@@ -163,16 +123,6 @@ class Tx_Hype_Domain_Model_StaticCountryZone extends Tx_Extbase_DomainObject_Abs
 	}
 	
 	/**
-	 * Setter for localName
-	 *
-	 * @param string $localName
-	 * @return void
-	 */
-	public function setLocalName($localName) {
-		$this->localName = $localName;
-	}
-	
-	/**
 	 * Getter for englishName
 	 *
 	 * @return string
@@ -182,32 +132,12 @@ class Tx_Hype_Domain_Model_StaticCountryZone extends Tx_Extbase_DomainObject_Abs
 	}
 	
 	/**
-	 * Setter for englishName
-	 *
-	 * @param string $englishName
-	 * @return void
-	 */
-	public function setEnglishName($englishName) {
-		$this->englishName = $englishName;
-	}
-	
-	/**
 	 * Getter for germanName
 	 *
 	 * @return string
 	 */
 	public function getGermanName() {
 		return $this->germanName;
-	}
-	
-	/**
-	 * Setter for germanName
-	 *
-	 * @param string $germanName
-	 * @return void
-	 */
-	public function setGermanName($germanName) {
-		$this->germanName = $germanName;
 	}
 	
 	

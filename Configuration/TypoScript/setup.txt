@@ -1,6 +1,460 @@
 config.tx_extbase {
 	persistence {
 		classes {
+			Tx_Hype_Domain_Model_Typo3_Page {
+				mapping {
+					tableName = pages
+
+					columns {
+						tstamp.mapOnProperty = modificationDate
+						perms_userid.mapOnProperty = owner
+						perms_groupid.mapOnProperty = group
+						perms_user.mapOnProperty = ownerPermissions
+						perms_group.mapOnProperty = groupPermissions
+						perms_everybody.mapOnProperty = defaultPermissions
+						editlock.mapOnProperty = editLock
+						crdate.mapOnProperty = creationDate
+						cruser_id.mapOnProperty = creationUser
+						doktype.mapOnProperty = type
+						TSconfig.mapOnProperty = typoscriptConfiguration
+						storage_pid.mapOnProperty = storagePage
+						is_siteroot.mapOnProperty = isRoot
+						starttime.mapOnProperty = startTime
+						endtime.mapOnProperty = endTime
+						urltype.mapOnProperty = urlType
+						fe_group.mapOnProperty = frontendGroup
+						lastUpdated.mapOnProperty = lastUpdated
+						newUntil.mapOnProperty = newUntil
+						SYS_LASTCHANGED.mapOnProperty = modificationDate
+						extendToSubpages.mapOnProperty = extendToSubpages
+						author_email.mapOnProperty = authorEmailAddress
+						nav_title.mapOnProperty = navigationTitle
+						nav_hide.mapOnProperty = hide
+						content_from_pid.mapOnProperty = contentFromPage
+						mount_pid.mapOnProperty = mountPage
+						mount_pid_ol.mapOnProperty = mountPageOverlay
+						l18n_cfg.mapOnProperty = internationalizationConfiguration
+						fe_login_mode.mapOnProperty = frontendLoginMode
+					}
+				}
+
+				subclasses {
+					1 = Tx_Hype_Domain_Model_Typo3_Page_Standard
+					3 = Tx_Hype_Domain_Model_Typo3_Page_ExternalUrl
+					4 = Tx_Hype_Domain_Model_Typo3_Page_Shortcut
+					6 = Tx_Hype_Domain_Model_Typo3_Page_BackendUserSection
+					7 = Tx_Hype_Domain_Model_Typo3_Page_MountPoint
+					254 = Tx_Hype_Domain_Model_Typo3_Page_SysFolder
+					255 = Tx_Hype_Domain_Model_Typo3_Page_Recycler
+					199 = Tx_Hype_Domain_Model_Typo3_Page_VisualMenuSeparator
+				}
+			}
+
+			Tx_Hype_Domain_Model_Typo3_Page_Standard < .Tx_Hype_Domain_Model_Typo3_Page
+			Tx_Hype_Domain_Model_Typo3_Page_Standard {
+				mapping {
+					recordType = 1
+				}
+
+				subclasses >
+			}
+
+			Tx_Hype_Domain_Model_Typo3_Page_ExternalUrl < .Tx_Hype_Domain_Model_Typo3_Page
+			Tx_Hype_Domain_Model_Typo3_Page_ExternalUrl {
+				mapping {
+					recordType = 3
+				}
+
+				subclasses >
+			}
+
+			Tx_Hype_Domain_Model_Typo3_Page_Shortcut < .Tx_Hype_Domain_Model_Typo3_Page
+			Tx_Hype_Domain_Model_Typo3_Page_Shortcut {
+				mapping {
+					recordType = 4
+				}
+
+				subclasses >
+			}
+
+			Tx_Hype_Domain_Model_Typo3_Page_BackendUserSection < .Tx_Hype_Domain_Model_Typo3_Page
+			Tx_Hype_Domain_Model_Typo3_Page_BackendUserSection {
+				mapping {
+					recordType = 6
+				}
+
+				subclasses >
+			}
+
+			Tx_Hype_Domain_Model_Typo3_Page_MountPoint < .Tx_Hype_Domain_Model_Typo3_Page
+			Tx_Hype_Domain_Model_Typo3_Page_MountPoint {
+				mapping {
+					recordType = 7
+				}
+
+				subclasses >
+			}
+
+			Tx_Hype_Domain_Model_Typo3_Page_SysFolder < .Tx_Hype_Domain_Model_Typo3_Page
+			Tx_Hype_Domain_Model_Typo3_Page_SysFolder {
+				mapping {
+					recordType = 254
+				}
+
+				subclasses >
+			}
+
+			Tx_Hype_Domain_Model_Typo3_Page_Recycler < .Tx_Hype_Domain_Model_Typo3_Page
+			Tx_Hype_Domain_Model_Typo3_Page_Recycler {
+				mapping {
+					recordType = 255
+				}
+
+				subclasses >
+			}
+
+			Tx_Hype_Domain_Model_Typo3_Page_VisualMenuSeparator < .Tx_Hype_Domain_Model_Typo3_Page
+			Tx_Hype_Domain_Model_Typo3_Page_VisualMenuSeparator {
+				mapping {
+					recordType = 199
+				}
+
+				subclasses >
+			}
+
+			Tx_Hype_Domain_Model_Typo3_Content {
+				mapping {
+					tableName = tt_content
+
+					columns {
+						tstamp.mapOnProperty = modificationDate
+						crdate.mapOnProperty = creationDate
+						cruser_id.mapOnProperty = creationUser
+						CType.mapOnProperty = type
+						bodytext.mapOnProperty = text
+						image.mapOnProperty = images
+						imagewidth.mapOnProperty = imageWidth
+						imageorient.mapOnProperty = imageOrientation
+						imagecaption.mapOnProperty = imageCaption
+						imagecols.mapOnProperty = imageColumns
+						imageborder.mapOnProperty = imageBorder
+						cols.mapOnProperty = columns
+						starttime.mapOnProperty = startTime
+						endtime.mapOnProperty = endTime
+						colPos.mapOnProperty = columnPosition
+						subheader.mapOnProperty = subtitle
+						spaceBefore.mapOnProperty = spaceBefore
+						spaceAfter.mapOnProperty = spaceAfter
+						fe_group.mapOnProperty = frontendUsergroup
+						imagecaption_position.mapOnProperty = imageCaptionPosition
+						image_noRows.mapOnProperty = imageNoRows
+						altText.mapOnProperty = imageAlternativeText
+						titleText.mapOnProperty = imageTitleText
+						longdescURL.mapOnProperty = imageLongDescriptionUrl
+						list_type.mapOnProperty = pluginName
+						table_cellspacing.mapOnProperty = tableCellSpacing
+						table_cellpadding.mapOnProperty = tableCellPadding
+						table_bgColor.mapOnProperty = tableBackgroundColor
+						sectionIndex.mapOnProperty = sectionIndex
+						linkToTop.mapOnProperty = linkToTop
+						filelink_size.mapOnProperty = fileLinkSize
+						date.mapOnProperty = publicationDate
+						imageheight.mapOnProperty = imageHeight
+						sys_language_uid.mapOnProperty = language
+						pi_flexform.mapOnProperty = flexformData
+					}
+				}
+
+				subclasses {
+					Header = Tx_Hype_Domain_Model_Typo3_Content_Header
+					Text = Tx_Hype_Domain_Model_Typo3_Content_Text
+					Image = Tx_Hype_Domain_Model_Typo3_Content_Image
+					Textpic = Tx_Hype_Domain_Model_Typo3_Content_Mixed
+
+					Bullets = Tx_Hype_Domain_Model_Typo3_Content_List
+					Table = Tx_Hype_Domain_Model_Typo3_Content_Table
+					Uploads = Tx_Hype_Domain_Model_Typo3_Content_Files
+
+					Mailform = Tx_Hype_Domain_Model_Typo3_Content_Form
+					Search = Tx_Hype_Domain_Model_Typo3_Content_Search
+					Login = Tx_Hype_Domain_Model_Typo3_Content_Login
+
+					Media = Tx_Hype_Domain_Model_Typo3_Content_Media
+					Menu = Tx_Hype_Domain_Model_Typo3_Content_Menu
+					Shortcut = Tx_Hype_Domain_Model_Typo3_Content_Records
+					List = Tx_Hype_Domain_Model_Typo3_Content_Plugin
+					Div = Tx_Hype_Domain_Model_Typo3_Content_Divider
+					Html =  Tx_Hype_Domain_Model_Typo3_Content_Html
+				}
+			}
+
+			Tx_Hype_Domain_Model_Typo3_Content_Header < .Tx_Hype_Domain_Model_Typo3_Content
+			Tx_Hype_Domain_Model_Typo3_Content_Header {
+				mapping {
+					recordType = header
+				}
+
+				subclasses >
+			}
+
+			Tx_Hype_Domain_Model_Typo3_Content_Text < .Tx_Hype_Domain_Model_Typo3_Content
+			Tx_Hype_Domain_Model_Typo3_Content_Text {
+				mapping {
+					recordType = text
+				}
+
+				subclasses >
+			}
+
+			Tx_Hype_Domain_Model_Typo3_Content_Image < .Tx_Hype_Domain_Model_Typo3_Content
+			Tx_Hype_Domain_Model_Typo3_Content_Image {
+				mapping {
+					recordType = image
+				}
+
+				subclasses >
+			}
+
+			Tx_Hype_Domain_Model_Typo3_Content_Mixed < .Tx_Hype_Domain_Model_Typo3_Content
+			Tx_Hype_Domain_Model_Typo3_Content_Mixed {
+				mapping {
+					recordType = textpic
+				}
+
+				subclasses >
+			}
+
+			Tx_Hype_Domain_Model_Typo3_Content_List < .Tx_Hype_Domain_Model_Typo3_Content
+			Tx_Hype_Domain_Model_Typo3_Content_List {
+				mapping {
+					recordType = bullets
+				}
+
+				subclasses >
+			}
+
+			Tx_Hype_Domain_Model_Typo3_Content_Table < .Tx_Hype_Domain_Model_Typo3_Content
+			Tx_Hype_Domain_Model_Typo3_Content_Table {
+				mapping {
+					recordType = table
+				}
+
+				subclasses >
+			}
+
+			Tx_Hype_Domain_Model_Typo3_Content_Files < .Tx_Hype_Domain_Model_Typo3_Content
+			Tx_Hype_Domain_Model_Typo3_Content_Files {
+				mapping {
+					recordType = uploads
+				}
+
+				subclasses >
+			}
+
+			Tx_Hype_Domain_Model_Typo3_Content_Form < .Tx_Hype_Domain_Model_Typo3_Content
+			Tx_Hype_Domain_Model_Typo3_Content_Form {
+				mapping {
+					recordType = mailform
+				}
+
+				subclasses >
+			}
+
+			Tx_Hype_Domain_Model_Typo3_Content_Search < .Tx_Hype_Domain_Model_Typo3_Content
+			Tx_Hype_Domain_Model_Typo3_Content_Search {
+				mapping {
+					recordType = search
+				}
+
+				subclasses >
+			}
+
+			Tx_Hype_Domain_Model_Typo3_Content_Login < .Tx_Hype_Domain_Model_Typo3_Content
+			Tx_Hype_Domain_Model_Typo3_Content_Login {
+				mapping {
+					recordType = login
+				}
+
+				subclasses >
+			}
+
+			Tx_Hype_Domain_Model_Typo3_Content_Media < .Tx_Hype_Domain_Model_Typo3_Content
+			Tx_Hype_Domain_Model_Typo3_Content_Media {
+				mapping {
+					recordType = media
+				}
+
+				subclasses >
+			}
+
+			Tx_Hype_Domain_Model_Typo3_Content_Menu < .Tx_Hype_Domain_Model_Typo3_Content
+			Tx_Hype_Domain_Model_Typo3_Content_Menu {
+				mapping {
+					recordType = menu
+				}
+
+				subclasses >
+			}
+
+			Tx_Hype_Domain_Model_Typo3_Content_Records < .Tx_Hype_Domain_Model_Typo3_Content
+			Tx_Hype_Domain_Model_Typo3_Content_Records {
+				mapping {
+					recordType = shortcut
+				}
+
+				subclasses >
+			}
+
+			Tx_Hype_Domain_Model_Typo3_Content_Plugin < .Tx_Hype_Domain_Model_Typo3_Content
+			Tx_Hype_Domain_Model_Typo3_Content_Plugin {
+				mapping {
+					recordType = list
+				}
+
+				subclasses >
+			}
+
+			Tx_Hype_Domain_Model_Typo3_Content_Divider < .Tx_Hype_Domain_Model_Typo3_Content
+			Tx_Hype_Domain_Model_Typo3_Content_Divider {
+				mapping {
+					recordType = div
+				}
+
+				subclasses >
+			}
+
+			Tx_Hype_Domain_Model_Typo3_Content_Html < .Tx_Hype_Domain_Model_Typo3_Content
+			Tx_Hype_Domain_Model_Typo3_Content_Html {
+				mapping {
+					recordType = html
+				}
+
+				subclasses >
+			}
+
+			Tx_Hype_Domain_Model_Typo3_FrontendUser {
+				mapping {
+					tableName = fe_users
+
+					columns {
+
+					}
+				}
+			}
+
+			Tx_Hype_Domain_Model_Typo3_FrontendUsergroup {
+				mapping {
+					tableName = fe_groups
+
+					columns {
+						tstamp.mapOnProperty = modificationDate
+						crdate.mapOnProperty = creationDate
+						cruser_id.mapOnProperty = creationUser
+						lockToDomain.mapOnProperty = allowedDomain
+						subgroup.mapOnProperty = usergroups
+						TSconfig.mapOnProperty = typoscriptConfiguration
+					}
+				}
+			}
+
+			Tx_Hype_Domain_Model_Typo3_BackendUser {
+				mapping {
+					tableName = be_users
+
+					columns {
+						starttime.mapOnProperty = startTime
+						endtime.mapOnProperty = endTime
+						cruser_id.mapOnProperty = creationUser
+						crdate.mapOnProperty = creationDate
+						tstamp.mapOnProperty = modificationDate
+						admin.mapOnProperty = isAdmin
+						usergroup.mapOnProperty = usergroups
+						lang.mapOnProperty = language
+						db_mountpoints.mapOnProperty = databaseMountpoints
+						realName.mapOnProperty = realName
+						userMods.mapOnProperty = allowedModules
+						allowed_languages.mapOnProperty = allowedLanguages
+						uc.mapOnProperty = backendConfiguration
+						file_mountpoints.mapOnProperty = fileMountpoints
+						fileoper_perms.mapOnProperty = filePermissions
+						workspace_perms.mapOnProperty = workspacePermissions
+						lockToDomain.mapOnProperty = allowedDomain
+						disableIPlock.mapOnProperty = disableIpLock
+						TSconfig.mapOnProperty = typoscriptConfiguration
+						lastlogin.mapOnProperty = lastLogin
+						createdByAction.mapOnProperty = createAction
+					}
+				}
+			}
+
+			Tx_Hype_Domain_Model_Typo3_BackendUsergroup {
+				mapping {
+					tableName = be_usergroups
+
+					columns {
+						cruser_id.mapOnProperty = creationUser
+						crdate.mapOnProperty = creationDate
+						tstamp.mapOnProperty = modificationDate
+						non_exclude_fields.mapOnProperty = allowedFields
+						explicit_allowdeny.mapOnProperty = deniedPlugins
+						allowed_languages.mapOnProperty = allowedLanguages
+						custom_options.mapOnProperty = options
+						db_mountpoints.mapOnProperty = databaseMountpoints
+						pagetypes_select.mapOnProperty = pageTypes
+						tables_select.mapOnProperty = viewableTables
+						tables_modify.mapOnProperty = editableTables
+						groupMods.mapOnProperty = allowedModules
+						file_mountpoints.mapOnProperty = fileMountpoints
+						fileoper_perms.mapOnProperty = filePermissions
+						inc_access_lists.mapOnProperty = enableAccessLists
+						lockToDomain.mapOnProperty = allowedDomains
+						TSconfig.mapOnProperty = typoscriptConfiguration
+						subgroup.mapOnProperty = usergroups
+						workspace_perms.mapOnProperty = workspacePermissions
+					}
+				}
+			}
+
+			Tx_Hype_Domain_Model_Typo3_SystemFilemount {
+				mapping {
+					tableName = sys_filemounts
+
+					columns {
+						tstamp.mapOnProperty = modificationDate
+						base.mapOnProperty = isRelative
+					}
+				}
+			}
+
+			Tx_Hype_Domain_Model_Typo3_SystemDomain {
+				mapping {
+					tableName = sys_domain
+
+					columns {
+						tstamp.mapOnProperty = modificationDate
+						crdate.mapOnProperty = creationDate
+						cruser_id.mapOnProperty = creationUser
+						domainName.mapOnProperty = domainName
+						redirectTo.mapOnProperty = redirectionAddress
+						redirectHttpStatusCode.mapOnProperty = redirectionHttpStatusCode
+						prepend_params.mapOnProperty = prependParameters
+					}
+				}
+			}
+
+			Tx_Hype_Domain_Model_StaticTerritory {
+				mapping {
+					tableName = static_territories
+
+					columns {
+						tr_iso_nr.mapOnProperty = isoNumber
+						tr_parent_iso_nr.mapOnProperty = parentIsoNumber
+						tr_name_en.mapOnProperty = englishName
+						tr_name_de.mapOnProperty = germanName
+					}
+				}
+			}
+
 			Tx_Hype_Domain_Model_StaticCountry {
 				mapping {
 					tableName = static_countries
@@ -57,6 +511,46 @@ config.tx_extbase {
 						lg_constructed.mapOnProperty = constructed
 						lg_name_en.mapOnProperty = englishName
 						lg_name_de.mapOnProperty = germanName
+					}
+				}
+			}
+
+			Tx_Hype_Domain_Model_StaticCurrency {
+				mapping {
+					tableName = static_currencies
+
+					columns {
+						cu_iso_3.mapOnProperty = isoCode3
+						cu_iso_nr.mapOnProperty = isoNumber
+						cu_symbol_left.mapOnProperty = leftSymbol
+						cu_symbol_right.mapOnProperty = rightSymbol
+						cu_thousands_point.mapOnProperty = thousandsSeparator
+						cu_decimal_point.mapOnProperty = decimalSeparator
+						cu_decimal_digits.mapOnProperty = decimalDigits
+						cu_sub_divisor.mapOnProperty = fractionDivisor
+						cu_sub_symbol_left.mapOnProperty = leftFractionSymbol
+						cu_sub_symbol_right.mapOnProperty = rightFractionSymbol
+						cu_name_en.mapOnProperty = englishName
+						cu_sub_name_en.mapOnProperty = englishFractionName
+						cu_name_de.mapOnProperty = germanName
+						cu_sub_name_de.mapOnProperty = germanFractiolName
+					}
+				}
+			}
+
+			Tx_Hype_Domain_Model_TtNews_Article {
+				mapping {
+					tableName = tt_news
+
+					columns {
+						datetime.mapOnProperty = publicationDate
+						archivedate.mapOnProperty = archiveDate
+						image.mapOnProperty = images
+						imagecaption.mapOnProperty = captions
+						short.mapOnProperty = introduction
+						bodytext.mapOnProperty = text
+						author_email.mapOnProperty = authorEmail
+						news_files.mapOnProperty = files
 					}
 				}
 			}

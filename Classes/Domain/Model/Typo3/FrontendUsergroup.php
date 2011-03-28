@@ -23,7 +23,7 @@
 ***************************************************************/
 
 /**
- * IpAddress
+ * FrontendUsergroup
  *
  * @package Hype
  * @subpackage Domain/Model
@@ -31,53 +31,77 @@
  * @copyright Copyright belongs to the respective authors
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License, version 2
  * @scope prototype
- * @valueobject
+ * @entity
  */
-class Tx_Hype_Domain_Model_IpAddress extends Tx_Extbase_DomainObject_AbstractValueObject {
-	
+class Tx_Hype_Domain_Model_Typo3_FrontendUsergroup extends Tx_Extbase_DomainObject_AbstractEntity {
+
+	/**
+	 * @var integer
+	 * @validate Integer
+	 */
+	protected $pid;
+
+	/**
+	 * @var boolean
+	 * @validate Boolean
+	 */
+	protected $hidden;
+
+	/**
+	 * @var boolean
+	 * @validate Boolean
+	 */
+	protected $deleted;
+
+	/**
+	 * @var Tx_Hype_Domain_Model_Typo3_BackendUser
+	 */
+	protected $creationUser;
+
+	/**
+	 * @var DateTime
+	 */
+	protected $creationDate;
+
+	/**
+	 * @var DateTime
+	 */
+	protected $modificationDate;
+
 	/**
 	 * @var string
 	 * @validate String
 	 */
-	protected $number;
-	
+	protected $title;
+
 	/**
-	 * Constructor
+	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Hype_Domain_Model_Typo3_SystemDomain>
 	 */
-	public function __construct($number) {
-		$this->setNumber($number);
-	}
-	
+	protected $allowedDomains;
+
 	/**
-	 * Setter for number
-	 *
-	 * @param string $number
-	 * @return void
+	 * @var string
+	 * @validate String
 	 */
-	public function setNumber($number) {
-		$this->number = $number;
-	}
-	
+	protected $description;
+
 	/**
-	 * Getter for number
-	 *
-	 * @return string
+	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Hype_Domain_Model_Typo3_FrontendUsergroup>
 	 */
-	public function getNumber() {
-		return $this->number;
-	}
-	
-	
-	
+	protected $usergroups;
+
+	/**
+	 * @var string
+	 * @validate String
+	 */
+	protected $typoscriptConfiguration;
+
+
+
 	/* Magic methods */
-	
-	/**
-	 * Returns as a formatted string
-	 *
-	 * @return string
-	 */
+
 	public function __toString() {
-		return $this->getNumber();
+		return get_class($this);
 	}
 }
 ?>

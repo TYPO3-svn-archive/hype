@@ -2,7 +2,7 @@
 /***************************************************************
 *  Copyright notice
 *
-*  (c) 2010 Thomas "Thasmo" Deinhamer <thasmo@gmail.com>
+*  (c) 2011 Thomas "Thasmo" Deinhamer <thasmo@gmail.com>
 *  All rights reserved
 *
 *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -23,8 +23,19 @@
 ***************************************************************/
 
 /**
- * A repository for StaticLanguage
+ * A repository for VisualMenuSeparator Pages
  */
-class Tx_Hype_Domain_Repository_StaticLanguageRepository extends Tx_Extbase_Persistence_Repository {			
+class Tx_Hype_Domain_Repository_Typo3_Page_VisualMenuSeparatorRepository extends Tx_Hype_Domain_Repository_Typo3_PageRepository {
+	
+	/**
+	 * Returns a query for objects of this repository
+	 *
+	 * @return Tx_Extbase_Persistence_QueryInterface
+	 */
+	public function createQuery() {
+		$query = parent::createQuery($this->objectType);
+		$query->getQuerySettings()->setRespectStoragePage(FALSE);
+		return $query;
+	}
 }
 ?>

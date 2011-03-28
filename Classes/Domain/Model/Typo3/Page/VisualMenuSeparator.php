@@ -2,7 +2,7 @@
 /***************************************************************
 *  Copyright notice
 *
-*  (c) 2010 Thomas "Thasmo" Deinhamer <thasmo@gmail.com>
+*  (c) 2011 Thomas "Thasmo" Deinhamer <thasmo@gmail.com>
 *  All rights reserved
 *
 *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -23,8 +23,25 @@
 ***************************************************************/
 
 /**
- * A repository for StaticLanguage
+ * VisualMenuSeparator
+ *
+ * @package Hype
+ * @subpackage Domain/Model
+ * @version $Id:$
+ * @copyright Copyright belongs to the respective authors
+ * @license http://opensource.org/licenses/gpl-license.php GNU Public License, version 2
+ * @scope prototype
+ * @entity
  */
-class Tx_Hype_Domain_Repository_StaticLanguageRepository extends Tx_Extbase_Persistence_Repository {			
+class Tx_Hype_Domain_Model_Typo3_Page_VisualMenuSeparator extends Tx_Hype_Domain_Model_Typo3_Page {
+	
+	/**
+	 * Returns the page's type
+	 *
+	 * @return string
+	 */
+	public function getType() {
+		return 'visual_menu_separator';
+	}
 }
 ?>

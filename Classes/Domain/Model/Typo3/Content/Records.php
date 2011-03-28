@@ -2,7 +2,7 @@
 /***************************************************************
 *  Copyright notice
 *
-*  (c) 2010 Thomas "Thasmo" Deinhamer <thasmo@gmail.com>
+*  (c) 2011 Thomas "Thasmo" Deinhamer <thasmo@gmail.com>
 *  All rights reserved
 *
 *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -23,7 +23,7 @@
 ***************************************************************/
 
 /**
- * IpAddress
+ * Records
  *
  * @package Hype
  * @subpackage Domain/Model
@@ -31,53 +31,45 @@
  * @copyright Copyright belongs to the respective authors
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License, version 2
  * @scope prototype
- * @valueobject
+ * @entity
  */
-class Tx_Hype_Domain_Model_IpAddress extends Tx_Extbase_DomainObject_AbstractValueObject {
+class Tx_Hype_Domain_Model_Typo3_Content_Records extends Tx_Hype_Domain_Model_Typo3_Content {
 	
 	/**
 	 * @var string
-	 * @validate String
 	 */
-	protected $number;
+	protected $records;
 	
 	/**
-	 * Constructor
-	 */
-	public function __construct($number) {
-		$this->setNumber($number);
-	}
-	
-	/**
-	 * Setter for number
-	 *
-	 * @param string $number
-	 * @return void
-	 */
-	public function setNumber($number) {
-		$this->number = $number;
-	}
-	
-	/**
-	 * Getter for number
+	 * Returns the content's type
 	 *
 	 * @return string
 	 */
-	public function getNumber() {
-		return $this->number;
+	public function getType() {
+		return 'records';
 	}
 	
-	
-	
-	/* Magic methods */
-	
 	/**
-	 * Returns as a formatted string
 	 *
-	 * @return string
+	 *
+	 * @return array
 	 */
-	public function __toString() {
-		return $this->getNumber();
+	public function getRecords() {
+		
+		$recordNames = explode(',', $this->records);
+		
+		$records = array();
+		foreach($recordNames as $recordName) {
+			
+			$repository = Tx_Hype_Persistence_RepositoryFactory::createByRecordName($recordName);
+			
+			if($repository) {
+				$uid = end(explode('_', $recordName));
+				array_push($records, $repository->findByUid($uid));
+			}
+		}
+		
+		return $records;
 	}
 }
 ?>

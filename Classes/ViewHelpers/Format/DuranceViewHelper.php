@@ -20,21 +20,51 @@
  *                                                                        */
 
 /**
- * View helper joins array elements with a string
+ * View helper for formatting a time durance
  *
  * @version $Id$
  * @license http://www.gnu.org/licenses/lgpl.html GNU Lesser General Public License, version 3 or later
+ *
  */
-class Tx_Hype_ViewHelpers_String_ImplodeViewHelper extends Tx_Fluid_Core_ViewHelper_AbstractViewHelper {
+class Tx_Hype_ViewHelpers_Format_DuranceViewHelper extends Tx_Fluid_Core_ViewHelper_AbstractViewHelper {
 
 	/**
-	 * Join array elements with a string
+	 * Formats the durance in hours, minutes and seconds
 	 *
-	 * @param string $glue The glue
-	 * @param array $pieces The pieces to glue
+	 * @param integer $seconds				The durance in seconds
+	 * @param string $separator				The separator for hours, minutes and seconds
+	 * @param boolean $stripHours			Remove hours value if empty
+	 * @param boolean $stripMinutes			Remove minutes value if empty
+	 * @return string						The formatted durance
+	 * @author								Thomas "Thasmo" Deinhamer <thasmo@gmail.com>
+	 * @api
 	 */
-	public function render($glue, array $pieces = array()) {
-		return implode($glue, $pieces);
+	public function render($seconds = NULL, $separator = ':', $stripHours = TRUE, $stripMinutes = FALSE) {
+
+		# get the durance
+		if(is_null($seconds)) {
+			$seconds = (integer)$this->renderChildren();
+		}
+
+		# format the seconds
+		$format = implode($separator, array('H', 'i', 's'));
+		$durance = gmdate($format, $seconds);
+		$parts = explode($separator, $durance);
+
+		# strip of empty hours
+		if($stripHours && intval($parts[0]) == 0) {
+			unset($parts[0]);
+		}
+
+		# strip of empty minutes
+		if($stripMinutes && intval($parts[1]) == 0) {
+			unset($parts[1]);
+		}
+
+		# build final string
+		$durance = implode($separator, $parts);
+
+		return $durance;
 	}
 }
 ?>

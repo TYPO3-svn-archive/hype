@@ -20,21 +20,33 @@
  *                                                                        */
 
 /**
- * View helper joins array elements with a string
+ * View helper for formatting a string in camel case
  *
  * @version $Id$
  * @license http://www.gnu.org/licenses/lgpl.html GNU Lesser General Public License, version 3 or later
+ *
  */
-class Tx_Hype_ViewHelpers_String_ImplodeViewHelper extends Tx_Fluid_Core_ViewHelper_AbstractViewHelper {
+class Tx_Hype_ViewHelpers_Format_CamelCaseViewHelper extends Tx_Fluid_Core_ViewHelper_AbstractViewHelper {
 
 	/**
-	 * Join array elements with a string
+	 * Formats the string
 	 *
-	 * @param string $glue The glue
-	 * @param array $pieces The pieces to glue
+	 * @param string $string				The string to format
+	 * @param boolean $lowerCase			Use lowerCase instead
+	 * @return string						The formatted string
+	 * @author								Thomas "Thasmo" Deinhamer <thasmo@gmail.com>
+	 * @api
 	 */
-	public function render($glue, array $pieces = array()) {
-		return implode($glue, $pieces);
+	public function render($string = NULL, $lowerCase = FALSE) {
+
+		# get the string
+		if(is_null($string)) {
+			$string = (string)$this->renderChildren();
+		}
+
+		return ($lowerCase)
+			? t3lib_div::underscoredToLowerCamelCase($string)
+			: t3lib_div::underscoredToUpperCamelCase($string);
 	}
 }
 ?>

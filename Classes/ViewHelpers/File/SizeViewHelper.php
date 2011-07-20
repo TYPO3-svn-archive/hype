@@ -26,45 +26,15 @@
  * @license http://www.gnu.org/licenses/lgpl.html GNU Lesser General Public License, version 3 or later
  */
 class Tx_Hype_ViewHelpers_File_SizeViewHelper extends Tx_Fluid_Core_ViewHelper_AbstractViewHelper {
-	
-	protected $units = array('b', 'k', 'm', 'g', 't', 'e', 'z', 'y');
-	protected $modes = array('binary' => 1024, 'decimal' => 1000);
-	
-	/**
-	 * Initializes the viewhelper
-	 *
-	 * @return void
-	 */
-	public function __construct() {
-		reset($this->units);
-	}
-	
+
 	/**
 	 * Render the filesize
 	 *
 	 * @param string $path Path to the file
-	 * @param string $unit The SI unit suffix to use
-	 * @param int $precision The optional number of decimal digits to round to
-	 * @param string $mode The mode to calculate the size and determine the SI unit
-	 * @return string The filesize with SI unit appended
+	 * @return integer The filesize in bytes
 	 */
-	public function render($path, $unit = NULL, $precision = 2, $mode = 'binary') {
-		
-		$path = realpath($path);
-		
-		if(!is_file($path)) {
-			return FALSE;
-		}
-		
-		$size = filesize($path);
-		
-		while(($size > $this->modes[$mode] && is_null($unit)) || (!is_null($unit) && current($this->units) != strtolower($unit))) {
-			$size /= $this->modes[$mode];
-			next($this->units);
-		}
-		
-		return round($size, $precision) . ' ' . strtoupper(current($this->units)) . ($mode == 'binary' ? 'i' : '') . 'B';
+	public function render($path) {
+		return filesize($path);
 	}
 }
-
 ?>

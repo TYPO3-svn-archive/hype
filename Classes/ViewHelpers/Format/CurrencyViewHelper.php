@@ -53,24 +53,34 @@
 class Tx_Hype_ViewHelpers_Format_CurrencyViewHelper extends Tx_Fluid_Core_ViewHelper_AbstractViewHelper {
 
 	/**
-	 * @param string $currencySign (optional) The currency sign, eg $ or €.
-	 * @param string $decimalSeparator (optional) The separator for the decimal point.
-	 * @param string $thousandsSeparator (optional) The thousands separator.
-	 * @param boolean $prependCurrencySign (optional) Prepending instead of appending the currency sign.
-	 * @return string the formatted amount.
-	 * @author Bastian Waidelich <bastian@typo3.org>
+	 * @param float $value					The value to format
+	 * @param string $currencySign			(optional) The currency sign, eg $ or €.
+	 * @param integer $decimals				(optional) The maximum number of decimal places to show
+	 * @param string $decimalSeparator		(optional) The separator for the decimal point.
+	 * @param string $thousandsSeparator	(optional) The thousands separator.
+	 * @param boolean $prependCurrencySign	(optional) Prepending instead of appending the currency sign.
+	 * @return string						The formatted amount.
+	 * @author								Bastian Waidelich <bastian@typo3.org>
+	 * @author								Thomas "Thasmo" Deinhamer <thasmo@gmail.com>
 	 * @api
 	 */
-	public function render($currencySign = '', $decimalSeparator = ',', $thousandsSeparator = '.', $prependCurrencySign = FALSE) {
-		$stringToFormat = $this->renderChildren();
-		$output = number_format($stringToFormat, 2, $decimalSeparator, $thousandsSeparator);
-		if($currencySign !== '') {
-			if($prependCurrencySign == TRUE) {
-				$output = $currencySign . ' ' . $output;
-			} else {
-				$output.= ' ' . $currencySign;
-			}
+	public function render($value = NULL, $currencySign = NULL, $decimals = 2, $decimalSeparator = ',', $thousandsSeparator = '.', $prependCurrencySign = FALSE) {
+
+		# get the value
+		if(is_null($value)) {
+			$value = (float)$this->renderChildren();
 		}
+
+		# format the number
+		$output = number_format(round($value, $decimals), max(0, $decimals), $decimalSeparator, $thousandsSeparator);
+
+		# add the currency sign
+		if(!is_null(NULL)) {
+			$output = ($prependCurrencySign)
+				? $currencySign . ' ' . $output
+				: $output . ' ' . $currencySign;
+		}
+
 		return $output;
 	}
 }

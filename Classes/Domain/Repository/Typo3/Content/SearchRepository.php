@@ -23,9 +23,9 @@
 ***************************************************************/
 
 /**
- * A repository for Search
+ * Repository for search content elements
  */
-class Tx_Hype_Domain_Repository_Typo3_Content_SearchRepository extends Tx_Hype_Domain_Repository_Typo3_ContentRepository {
-
+class Tx_Hype_Domain_Repository_Typo3_Content_SearchRepository extends Tx_Hype_Domain_Repository_Typo3_ContentRepository
+	implements Tx_Hype_Domain_Repository_Typo3_Content_SearchRepositoryInterface {
 }
 ?>

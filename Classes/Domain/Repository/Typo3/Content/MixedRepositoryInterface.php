@@ -23,25 +23,8 @@
 ***************************************************************/
 
 /**
- * SysFolder
- *
- * @package Hype
- * @subpackage Domain/Model
- * @version $Id:$
- * @copyright Copyright belongs to the respective authors
- * @license http://opensource.org/licenses/gpl-license.php GNU Public License, version 2
- * @scope prototype
- * @entity
+ * Interface for repositories of mixed content elements
  */
-class Tx_Hype_Domain_Model_Typo3_Page_SysFolder extends Tx_Hype_Domain_Model_Typo3_Page {
-	
-	/**
-	 * Returns the page's type
-	 *
-	 * @return string
-	 */
-	public function getType() {
-		return 'sys_folder';
-	}
+interface Tx_Hype_Domain_Repository_Typo3_Content_MixedRepositoryInterface {
 }
 ?>

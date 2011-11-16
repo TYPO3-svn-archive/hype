@@ -23,19 +23,9 @@
 ***************************************************************/
 
 /**
- * A repository for MountPoint Pages
+ * A repository for mount point pages
  */
-class Tx_Hype_Domain_Repository_Typo3_Page_MountPointRepository extends Tx_Hype_Domain_Repository_Typo3_PageRepository {
-	
-	/**
-	 * Returns a query for objects of this repository
-	 *
-	 * @return Tx_Extbase_Persistence_QueryInterface
-	 */
-	public function createQuery() {
-		$query = parent::createQuery($this->objectType);
-		$query->getQuerySettings()->setRespectStoragePage(FALSE);
-		return $query;
-	}
+class Tx_Hype_Domain_Repository_Typo3_Page_MountPointRepository extends Tx_Hype_Domain_Repository_Typo3_PageRepository
+	implements Tx_Hype_Domain_Repository_Typo3_Page_MountPointRepositoryInterface {
 }
 ?>

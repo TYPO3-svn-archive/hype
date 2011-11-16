@@ -23,9 +23,9 @@
 ***************************************************************/
 
 /**
- * A repository for Mixed
+ * Repository for mixed content elements
  */
-class Tx_Hype_Domain_Repository_Typo3_Content_MixedRepository extends Tx_Hype_Domain_Repository_Typo3_ContentRepository {
-
+class Tx_Hype_Domain_Repository_Typo3_Content_MixedRepository extends Tx_Hype_Domain_Repository_Typo3_ContentRepository
+	implements Tx_Hype_Domain_Repository_Typo3_Content_MixedRepositoryInterface {
 }
 ?>

@@ -23,9 +23,9 @@
 ***************************************************************/
 
 /**
- * A repository for Media
+ * Repository for media content elements
  */
-class Tx_Hype_Domain_Repository_Typo3_Content_MediaRepository extends Tx_Hype_Domain_Repository_Typo3_ContentRepository {
-
+class Tx_Hype_Domain_Repository_Typo3_Content_MediaRepository extends Tx_Hype_Domain_Repository_Typo3_ContentRepository
+	implements Tx_Hype_Domain_Repository_Typo3_Content_MediaRepositoryInterface {
 }
 ?>

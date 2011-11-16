@@ -25,6 +25,7 @@
 /**
  * A repository for Frontend Users
  */
-class Tx_Hype_Domain_Repository_Typo3_FrontendUserRepository extends Tx_Extbase_Persistence_Repository {
+class Tx_Hype_Domain_Repository_Typo3_FrontendUserRepository extends Tx_Extbase_Persistence_Repository
+	implements Tx_Hype_Domain_Repository_Typo3_FrontendUserRepositoryInterface {
 }
 ?>

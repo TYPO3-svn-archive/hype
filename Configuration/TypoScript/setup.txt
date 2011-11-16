@@ -44,7 +44,7 @@ config.tx_extbase {
 					4 = Tx_Hype_Domain_Model_Typo3_Page_Shortcut
 					6 = Tx_Hype_Domain_Model_Typo3_Page_BackendUserSection
 					7 = Tx_Hype_Domain_Model_Typo3_Page_MountPoint
-					254 = Tx_Hype_Domain_Model_Typo3_Page_SysFolder
+					254 = Tx_Hype_Domain_Model_Typo3_Page_SystemFolder
 					255 = Tx_Hype_Domain_Model_Typo3_Page_Recycler
 					199 = Tx_Hype_Domain_Model_Typo3_Page_VisualMenuSeparator
 				}
@@ -95,8 +95,8 @@ config.tx_extbase {
 				subclasses >
 			}
 
-			Tx_Hype_Domain_Model_Typo3_Page_SysFolder < .Tx_Hype_Domain_Model_Typo3_Page
-			Tx_Hype_Domain_Model_Typo3_Page_SysFolder {
+			Tx_Hype_Domain_Model_Typo3_Page_SystemFolder < .Tx_Hype_Domain_Model_Typo3_Page
+			Tx_Hype_Domain_Model_Typo3_Page_SystemFolder {
 				mapping {
 					recordType = 254
 				}

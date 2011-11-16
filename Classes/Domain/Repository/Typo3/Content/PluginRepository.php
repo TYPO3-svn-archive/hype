@@ -23,9 +23,9 @@
 ***************************************************************/
 
 /**
- * A repository for Plugin
+ * Repository for plugin content elements
  */
-class Tx_Hype_Domain_Repository_Typo3_Content_PluginRepository extends Tx_Hype_Domain_Repository_Typo3_ContentRepository {
-
+class Tx_Hype_Domain_Repository_Typo3_Content_PluginRepository extends Tx_Hype_Domain_Repository_Typo3_ContentRepository
+	implements Tx_Hype_Domain_Repository_Typo3_Content_PluginRepositoryInterface {
 }
 ?>

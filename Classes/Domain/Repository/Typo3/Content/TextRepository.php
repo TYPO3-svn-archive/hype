@@ -23,9 +23,9 @@
 ***************************************************************/
 
 /**
- * A repository for Text
+ * Repository for text content elements
  */
-class Tx_Hype_Domain_Repository_Typo3_Content_TextRepository extends Tx_Hype_Domain_Repository_Typo3_ContentRepository {
-
+class Tx_Hype_Domain_Repository_Typo3_Content_TextRepository extends Tx_Hype_Domain_Repository_Typo3_ContentRepository
+	implements Tx_Hype_Domain_Repository_Typo3_Content_TextRepositoryInterface {
 }
 ?>

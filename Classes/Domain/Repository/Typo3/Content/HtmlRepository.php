@@ -23,9 +23,9 @@
 ***************************************************************/
 
 /**
- * A repository for Html
+ * Repository for html content elements
  */
-class Tx_Hype_Domain_Repository_Typo3_Content_HtmlRepository extends Tx_Hype_Domain_Repository_Typo3_ContentRepository {
-
+class Tx_Hype_Domain_Repository_Typo3_Content_HtmlRepository extends Tx_Hype_Domain_Repository_Typo3_ContentRepository
+	implements Tx_Hype_Domain_Repository_Typo3_Content_HtmlRepositoryInterface {
 }
 ?>

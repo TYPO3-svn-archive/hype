@@ -25,8 +25,9 @@
 /**
  * A repository for Content
  */
-class Tx_Hype_Domain_Repository_Typo3_ContentRepository extends Tx_Extbase_Persistence_Repository {
-	
+class Tx_Hype_Domain_Repository_Typo3_ContentRepository extends Tx_Extbase_Persistence_Repository
+	implements Tx_Hype_Domain_Repository_Typo3_ContentRepositoryInterface {
+
 	/**
 	 * Returns a query for objects of this repository
 	 *

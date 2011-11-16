@@ -25,7 +25,8 @@
 /**
  * A repository for backend users
  */
-class Tx_Hype_Domain_Repository_Typo3_BackendUserRepository extends Tx_Extbase_Persistence_Repository {
+class Tx_Hype_Domain_Repository_Typo3_BackendUserRepository extends Tx_Extbase_Persistence_Repository
+	implements Tx_Hype_Domain_Repository_Typo3_BackendUserRepositoryInterface {
 
 	/**
 	 * Returns a query for objects of this repository
